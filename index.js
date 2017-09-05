@@ -1,6 +1,6 @@
 var execSync = require('child_process').execSync
 var fs = require('fs')
-var index = 0
+var index = fs.readFileSync('commit.txt', 'utf-8')
 
 function commit (message) {
   var child = execSync('git add . && git commit -m "' + message + '" && git push -u origin master', function (error, stdout, stderr) {
@@ -9,7 +9,7 @@ function commit (message) {
 }
 
 function changeFile () {
-  var newValue = 'Commit Number ' + index
+  var newValue = index
 
   fs.writeFileSync('commit.txt', newValue, 'utf-8')
 
