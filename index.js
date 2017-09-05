@@ -5,8 +5,6 @@ var index = fs.readFileSync('commit.txt', 'utf-8')
 function commit (message) {
   var child = execSync('git add . && git commit -m "' + message + '" && git push -u origin master', function (error, stdout, stderr) {
     console.log(stdout)
-    console.log(stderr)
-    console.log(error)
   })
 }
 
@@ -19,7 +17,7 @@ function changeFile () {
 }
 
 function startAutoCommit () {
-  var seconds = Math.floor(Math.random() * 10)
+  var seconds = Math.floor(Math.random() * 10) + 10
   commit('Commit Number: #' + index)
   changeFile()
   index++
