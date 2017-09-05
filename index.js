@@ -21,8 +21,8 @@ function changeFile () {
 function startAutoCommit () {
   var seconds = Math.floor(Math.random() * 5)
   commit('Commit Number: #' + index)
-  changeFile()
   index++
+  changeFile()
 
   setTimeout(function () {
     startAutoCommit()
