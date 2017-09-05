@@ -5,6 +5,7 @@ var index = fs.readFileSync('commit.txt', 'utf-8')
 function commit (message) {
   var child = execSync('git add . && git commit -m "' + message + '" && git push -u origin master', function (error, stdout, stderr) {
     console.log(stdout)
+    console.log(stderr)
   })
 }
 
